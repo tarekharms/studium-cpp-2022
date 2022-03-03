@@ -1,0 +1,50 @@
+DEC64: Decimal Floating Point
+
+Douglas Crockford
+douglas@crockford.com
+
+dec64.com
+2019-09-28
+Public Domain
+
+    NO WARRANTY EXPRESSED OR IMPLIED. USE AT YOUR OWN RISK.
+    SUBJECT TO CHANGE WITHOUT NOTICE.
+
+DEC64 is a decimal floating point format for the next generation of
+application programming languages.
+
+dec64.asm is an implementation of the elementary operators for x64 processors.
+
+dec64.s is an implementation of the elementary operators for ARM64 processors.
+
+dec64.obj.html is a description of the functions in dec64.asm and dec64.s.
+
+dec64.h is a companion header file for C.
+
+dec64_test.c is a test program.
+
+dec64_string.c is an implementation of functions for converting between DEC64
+and strings.
+
+dec64_string.html is a description of the functions in dec64_string.c.
+
+dec64_string.h is a companion header file.
+
+dec64_string_test.c is a test program.
+
+dec64_math.c is a placeholder implementation of elementary functions. Many of these function are not accurate enough or fast enough. It should be replaced with a better implementation. The functions include
+
+    acos    asin    atan    atan2    cos    exp      factorial
+    log     raise   root    sin      sqrt   tan
+and
+    random  seed
+
+dec64_math.html is a description of the functions in dec64_math.h.
+
+dec64_math.h is a companion header file.
+
+dec64_math_test.c is a test program.
+
+dec64.html is a descriptive web page.
+
+dec64.png is a logo.
