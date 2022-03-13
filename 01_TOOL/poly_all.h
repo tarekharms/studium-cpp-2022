@@ -1,0 +1,1 @@
+int poly_all();
