@@ -1,0 +1,28 @@
+
+main_.o:     file format elf64-x86-64
+
+
+Disassembly of section .text:
+
+0000000000000000 <main>:
+   0:	55                   	push   %rbp
+   1:	48 89 e5             	mov    %rsp,%rbp
+   4:	48 83 ec 10          	sub    $0x10,%rsp
+   8:	c7 45 fc 00 00 00 00 	movl   $0x0,-0x4(%rbp)
+   f:	c7 45 f8 07 00 00 00 	movl   $0x7,-0x8(%rbp)
+  16:	8b 75 f8             	mov    -0x8(%rbp),%esi
+  19:	f2 0f 2a 45 f8       	cvtsi2sdl -0x8(%rbp),%xmm0
+  1e:	89 75 f4             	mov    %esi,-0xc(%rbp)
+  21:	e8 00 00 00 00       	callq  26 <main+0x26>
+  26:	f2 0f 2c d0          	cvttsd2si %xmm0,%edx
+  2a:	48 bf 00 00 00 00 00 	movabs $0x0,%rdi
+  31:	00 00 00 
+  34:	8b 75 f4             	mov    -0xc(%rbp),%esi
+  37:	b0 00                	mov    $0x0,%al
+  39:	e8 00 00 00 00       	callq  3e <main+0x3e>
+  3e:	31 c9                	xor    %ecx,%ecx
+  40:	89 45 f0             	mov    %eax,-0x10(%rbp)
+  43:	89 c8                	mov    %ecx,%eax
+  45:	48 83 c4 10          	add    $0x10,%rsp
+  49:	5d                   	pop    %rbp
+  4a:	c3                   	retq   
