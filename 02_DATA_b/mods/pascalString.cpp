@@ -43,16 +43,16 @@ std::string as_string(PascalString p){
   return s;
 }
 
-
-PascalString reversed(PascalString p)
+PascalString reversed(PascalString string)
 {
-    PascalString result = {0, {0,}};
-    result.length = p.length;
+    PascalString reversed = {0 ,{0,}};
 
-    for(int i = 0; i < p.length; i++)
+    reversed.length = string.length;
+
+    for(int i = 0; i < string.length; i++)
     {
-        result.characters[p.length - i - 1] = p.characters[i];
+        reversed.characters[i] = string.characters[string.length - i - 1];
     }
 
-    return result;
+    return reversed;
 }

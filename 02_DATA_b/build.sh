@@ -17,7 +17,7 @@ set -x
 
 CPPFLAGS="-Wall -Wextra -Wpedantic -O0 -std=c++17"
 clang++ ${CPPFLAGS} -I${CPP_SRC_UTIL_PATH}/helpers/  -c pascalString.cpp
-clang++ ${CPPFLAGS} -I${CPP_SRC_UTIL_PATH}/helpers/  -c main_colors.cpp
+#clang++ ${CPPFLAGS} -I${CPP_SRC_UTIL_PATH}/helpers/  -c main_colors.cpp
 #clang++ ${CPPFLAGS} -I${CPP_SRC_UTIL_PATH}/helpers/  -c main_02_DATA.cpp
 clang++ ${CPPFLAGS} -I${CPP_SRC_UTIL_PATH}/helpers/  -c main_02_MENT.cpp
 
@@ -26,8 +26,8 @@ clang++ ${CPPFLAGS} -I${CPP_SRC_UTIL_PATH}/helpers/  -c main_02_MENT.cpp
 ##              L I N K E R               ##
 ############################################
 
-#ld_ez -o a.out_main_02_DATA main_02_DATA.o pascalString.o
 ld_ez -o a.out_main_02_MENT main_02_MENT.o pascalString.o
-ld_ez -o a.out_colors main_colors.o
+#ld_ez -o a.out_main_02_DATA main_02_DATA.o pascalString.o
+#ld_ez -o a.out_colors main_colors.o
 
 
