@@ -4,7 +4,7 @@
 #include <iostream>
 #include <iomanip>
 #include "typedMemory.hpp"
-
+#include <stdint.h>
 
 
 struct RGB {
@@ -39,11 +39,12 @@ int main() {
   TypedMemory mem(0xcc); // default memory value
   
   mem.putUInt(0, 0x41312111);
-  mem.putChar(4,'C');
-  mem.putChar(5,'+');
-  mem.putChar(6,'+');
-  mem.putChar(7,'!');
-  mem.putDouble(0x10, 16.0 /*355.0/113.0*/);
+  mem.putUInt(1, 0x41312111);
+  mem.putChar(0x10,'C');
+  mem.putChar(0x11,'+');
+  mem.putChar(0x12,'+');
+  mem.putChar(0x13,'!');
+  mem.putDouble(0x20, -16.5 /*355.0/113.0*/);
  
   /*
   std::cout << std::setbase(16);
@@ -57,7 +58,7 @@ int main() {
   */
   
   compund a = {0x48382818, 16.0};
-  mem.putAnything(0x20, &a, sizeof(compund));
+  mem.putAnything(0x30, &a, sizeof(compund));
   
   /*
   compund b = {0, 0.0};
@@ -68,7 +69,7 @@ int main() {
   */
   
   RGB rgb = {0x33, 0x44, 0x55};
-  mem.putAnything(0x40, &rgb, sizeof(rgb));
+  mem.putAnything(0x50, &rgb, sizeof(rgb));
 
   std::cout << mem.hexDump() << std::endl;
   
