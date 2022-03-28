@@ -38,13 +38,15 @@ struct compund {
 int main() {
   TypedMemory mem(0xcc); // default memory value
   
-  mem.putUInt(0, 0x41312111);
-  mem.putUInt(1, 0x41312111);
-  mem.putChar(0x10,'C');
-  mem.putChar(0x11,'+');
-  mem.putChar(0x12,'+');
-  mem.putChar(0x13,'!');
-  mem.putDouble(0x20, -16.5 /*355.0/113.0*/);
+  mem.putUInt(0x10, 1234);
+  mem.putChar(0x20, '1');
+  mem.putChar(0x21, '2');
+  mem.putChar(0x22, '3');
+  mem.putChar(0x23, '4');
+
+  char* string = "1234";
+
+  mem.putAnything(0x30, string, sizeof(string));
  
   /*
   std::cout << std::setbase(16);
@@ -58,7 +60,7 @@ int main() {
   */
   
   compund a = {0x48382818, 16.0};
-  mem.putAnything(0x30, &a, sizeof(compund));
+  mem.putAnything(0x40, &a, sizeof(compund));
   
   /*
   compund b = {0, 0.0};
