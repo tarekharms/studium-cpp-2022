@@ -3,7 +3,7 @@
 ##          E N V I R O N M E N T         ##
 ############################################
 echo -e "\033[01;34m============== building ... ==============\033[0m"
-CPP_SRC_UTIL_PATH=${CPP_SRC_UTIL_PATH:-../90_aux_src}
+CPP_SRC_UTIL_PATH=${CPP_SRC_UTIL_PATH:-../../90_aux_src}
 export CPLUS_INCLUDE_PATH=${CPP_SRC_UTIL_PATH}/helpers 
 echo "using CPLUS_INCLUDE_PATH=${CPLUS_INCLUDE_PATH}"
 alias ld_ez="clang++"  # ez = easy
