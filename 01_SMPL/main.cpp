@@ -16,6 +16,6 @@ void printValues(int first, int last){
 }
 
 int main(){           // program entry point
-  printValues(0,9);
+  printValues(10,19);
   return 0;           // no error occoured
 }

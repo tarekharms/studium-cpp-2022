@@ -2,14 +2,15 @@
 
 int polynom1(int x)
 {
-    return 3*x*x*x - 2*x + 5;
+	return 4 * x * x + 6 * x - 5;
 }
 
 int main()
 {
-    for(int i = 0; i <= 10; i++)
-    {
-        println("y(", i, ")=", polynom1(i));
-    }
-    return 0;
+	for(int i = 0; i < 11; i++)
+	{
+		println("y(", i, ")=", polynom1(i));
+	}
+
+	return 0;
 }
