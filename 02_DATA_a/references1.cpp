@@ -15,5 +15,6 @@ int main()
   spitzname = spitzname + 4000;
   verweis   =   verweis + 50000;
   println("value after ", value);
+  println(reference);
 }
 
