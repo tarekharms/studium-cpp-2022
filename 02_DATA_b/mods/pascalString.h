@@ -22,4 +22,4 @@ PascalString plus(PascalString left, PascalString right);
 std::string as_string(PascalString p);
 
 PascalString reversed(PascalString p);
-
+PascalString fromCstring(char *);

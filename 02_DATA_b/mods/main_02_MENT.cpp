@@ -4,6 +4,8 @@
 #include "../helpers/println.hpp"
 #include "pascalString.h"
 
+char cStringArea[1024];
+
 
 // maps symbols/characters '0' ... '9' ... 'a' ... 'f' to numbers 0 ... 15
 int hexDigitToInt(char hexDigit){
@@ -80,6 +82,22 @@ PascalString intToHexString(int zahl)
     return reversed(string);
 }
 
+PascalString intToDual(int zahl)
+{
+    PascalString string = {0, {0, }};
+
+    do
+    {
+        string.characters[string.length] = intToHexDigit(zahl % 2);
+        string.length++;
+        zahl /= 2;
+    }
+    while(zahl > 0);
+
+    return reversed(string);
+}
+
+
 int main(/*int argc, char** argv, char** envp*/){
     
     println("0x0 = ", hexDigitToInt('0'));
@@ -100,9 +118,14 @@ int main(/*int argc, char** argv, char** envp*/){
 
     printPascalString(string);
 
+    char * cString = "ZA WARUDOOOOOO!";
+
+    PascalString pString = fromCstring(cString);
+    printPascalString(pString);
 
     println(255, " = 0x", intToHexString(255));
     println(256, " = 0x", intToHexString(256));
+    println(123, " = 0b", intToDual(123));
 
 
     println(fromString("Hello, World!"));

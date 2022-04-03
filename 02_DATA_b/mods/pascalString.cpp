@@ -43,6 +43,21 @@ std::string as_string(PascalString p){
   return s;
 }
 
+PascalString fromCstring(char * cString)
+{
+    PascalString string = {0, {0, }};
+    int i = 0;
+    while(cString[i] != 0)
+    {
+        string.characters[i] = cString[i];
+        i++;
+    }
+
+    string.length = i;
+
+    return string;
+}
+
 PascalString reversed(PascalString string)
 {
     PascalString reversed = {0 ,{0,}};
