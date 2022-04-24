@@ -24,7 +24,7 @@ Rekursive Implementierungen benötigen mehr speicher und können ggf. sogar den 
 
 ### 5.
 
-Keine mir bekannte.
+Keine mir bekannte. Hatten wir bereits in der Berufsschule. (Prüfung ob durch 3 und 5 teilbar zuerst)
 
 
 ### 6.
@@ -59,12 +59,11 @@ Der Programmfluss wird durch Kontrollstrukturen bestimmt und lässt so die "CPU 
  - a = 10
  - b = 3
 
- - a: 10, b: 10 -> (a < b) == falsch; loopnum: 2, a: 13, b: 10; r: 13%10=3
- - a = 10
- - b = 3
+ - a: 10, b: 3 -> (a < b) == falsch; loopnum: 3, a: 10, b: 3; r: 10%3=1
+ - a = 3 
+ - b = 1
 
- - a: 16, b: 8 -> (a < b) == falsch; loopnum: 2, a: 16, b: 8; r: 16%8 = 0;
- - Ausgabe: "exec state 2 : a=16 b=8 r=0"
+ - Ausgabe: "exec state 3 : a=10 b=3 r=1"
 
 
 
@@ -75,4 +74,4 @@ Keine
 
 ## Gewonnene Erkenntnisse
 
-Wissen über die genauere Handhabung von Strings und zur Verwendung von Bitweisen Operationen in C/++.
+Die Tatsache, dass GOTO in C/C++ noch verwendet werden kann.
