@@ -49,11 +49,11 @@ ld_ez -o a.out_minmax_rational RationalNumber.o main_04_UDEF_minmax.o
 ############################################
 ##               R G B                    ##
 ############################################
-echo -en "\033[01;34minfo: \033[0m" #31 for red
-echo "building aout_minmax_rational.out   R G B"
-echo -en "\033[01;31mTODO: \033[0m"
-echo "FIXME - TODO - TBD - AUFGABE RGB!" 
-ld_ez -o a.out_minmax_rgb missingObjectFile.o
+#echo -en "\033[01;34minfo: \033[0m" #31 for red
+#echo "building aout_minmax_rational.out   R G B"
+#echo -en "\033[01;31mTODO: \033[0m"
+#echo "FIXME - TODO - TBD - AUFGABE RGB!" 
+#ld_ez -o a.out_minmax_rgb missingObjectFile.o
 
 
 

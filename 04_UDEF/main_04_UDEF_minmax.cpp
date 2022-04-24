@@ -24,8 +24,11 @@ typedef RationalNumber calctype;        // location 2
 void printMinMax(calctype values[], int length){
   calctype minimum = values[0];
   calctype maximum = values[0];
-  //calctype sum = CREATE(0); // calculate average
+  calctype sum = CREATE(0); // calculate average
+  
   for(int i=1; i<length; i++){
+      sum = sum + values[i];
+
     if (values[i] < minimum){
       minimum = values[i];
     }
@@ -33,7 +36,10 @@ void printMinMax(calctype values[], int length){
       maximum = values[i];
     }
   }
-  println("minimum=", minimum, " maximum=", maximum);
+
+  calctype average = sum;
+
+  println("minimum=", minimum, " maximum=", maximum, " average=", average);
 }
 
 
