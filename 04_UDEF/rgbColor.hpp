@@ -12,18 +12,25 @@ struct RgbColor {
 public:
   
   RgbColor();
+  explicit RgbColor(uint32_t red, uint32_t green, uint32_t blue);
   explicit RgbColor(uint32_t rgbVal);
+  operator unsigned int();
+
+  RgbColor& operator++();
 
   uint8_t red()   const ;
   uint8_t green() const ;
   uint8_t blue()  const ;
 
-
-  // todo: implement methods an operators
+  uint8_t luminosity();
 };
+
+
+RgbColor operator+ (RgbColor left, RgbColor right);
 
 
 std::string as_string(RgbColor);  // for println()
 
+uint8_t addColor(uint8_t left, uint8_t right);
 #endif
 
