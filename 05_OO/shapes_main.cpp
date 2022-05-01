@@ -18,7 +18,11 @@ class Shape {
         Shape();
         Shape(int x, int y, Colors color);
         virtual void draw() = 0;
+        virtual double area() = 0;
+        virtual ~Shape();
 };
+
+Shape::~Shape() {}
 
 Shape::Shape()
 {
@@ -32,13 +36,43 @@ Shape::Shape(int x, int y, Colors color)
     _color = color;
 }
 
+class Cross : public Shape {
+    public:
+        Cross();
+        Cross(int x, int y);
+        Cross(int x, int y, Colors color);
+        void draw();
+        double area();
+};
+
+
+Cross::Cross() : Shape(0, 0, Colors::MAGENTA) {}
+
+Cross::Cross(int x, int y) : Shape(x, y, Colors::MAGENTA) {}
+
+Cross::Cross(int x, int y, Colors color) : Shape(x, y, color) {}
+
+double Cross::area() { return 0;}
+
+
+void Cross::draw()
+{
+    ansiConsole.printText(_position.x, _position.y, "#", _color);
+    ansiConsole.printText(_position.x + 1, _position.y + 1, "#", _color);
+    ansiConsole.printText(_position.x + 1, _position.y - 1, "#", _color);
+    ansiConsole.printText(_position.x - 1, _position.y + 1, "#", _color);
+    ansiConsole.printText(_position.x - 1, _position.y - 1, "#", _color);
+}
+
 class Point : public Shape {
     public:
         Point();
         Point(int x, int y);
         Point(int x, int y, Colors color);
         void draw();
+        double area();
 };
+
 
 Point::Point() : Shape(0, 0, Colors::RED) {
 
@@ -54,6 +88,8 @@ void Point::draw(){
   ansiConsole.printText(_position.x,_position.y,"*", _color);
 }
 
+double Point::area() { return 0; }
+
 class Circle : public Shape {
 protected:
   int       _radius;
@@ -62,7 +98,9 @@ public:
   Circle(int x, int y, int radius);
   Circle(int x, int y, int radius, Colors color);
   void draw();
+  double area();
 };
+
 
 Circle::Circle() : Shape(0, 0, Colors::GREEN) {
   _radius=0;
@@ -96,6 +134,11 @@ void Circle::draw(){
   }
 }
 
+double Circle::area()
+{
+    return 3.14 * _radius * _radius;
+}
+
 class Rectangle : public Shape
 {
     protected: 
@@ -107,6 +150,7 @@ class Rectangle : public Shape
         Rectangle(int x, int y, int width, int height);
         Rectangle(int x, int y, int width, int height, Colors color);
         void draw();
+        double area();
 };
 
 Rectangle::Rectangle() : Shape(0, 0, Colors::BLUE)
@@ -142,29 +186,34 @@ void Rectangle::draw()
     }
 }
 
+double Rectangle::area()
+{
+    return _width * _height;
+}
+
+
 class Scene
 {
     protected:
-        std::vector<Point *> _points;
-        std::vector<Circle *> _circles;
-        std::vector<Rectangle *> _rectangles;
         std::vector<Shape *> _shapes;
 
     public:
         Scene();
         void addShape(Shape*);
         void removeShape();
-
-        void addPoint(Point*);
-        void addCircle(Circle*);
-        void addRectangle(Rectangle*);
         void drawAll();
-        void removePoint();
-        void removeCircle();
-        void removeRectangle();
+        ~Scene(); 
 };
 
 Scene::Scene() {}
+
+Scene::~Scene() 
+{
+    for(int i = 0; i < (int)_shapes.size(); i++)
+    {
+        delete _shapes[i];
+    }
+}
 
 void Scene::addShape(Shape* shape)
 {
@@ -174,36 +223,6 @@ void Scene::addShape(Shape* shape)
 void Scene::removeShape()
 {
     _shapes.pop_back();
-}
-
-void Scene::addPoint(Point * point)
-{
-    _points.push_back(point);
-}
-
-void Scene::addCircle(Circle* circle)
-{
-    _circles.push_back(circle);
-}
-
-void Scene::addRectangle(Rectangle* rectangle)
-{
-    _rectangles.push_back(rectangle);
-}
-
-void Scene::removePoint()
-{
-    _points.pop_back();
-}
-
-void Scene::removeCircle()
-{
-    _circles.pop_back();
-}
-
-void Scene::removeRectangle()
-{
-    _rectangles.pop_back();
 }
 
 void Scene::drawAll()
@@ -238,6 +257,9 @@ ansiConsole.clearScreen();
   scene->addShape(new Point(15, 5, Colors::WHITE));
   scene->addShape(new Point(20, 15, Colors::WHITE));
   scene->addShape(new Point(17, 7, Colors::WHITE));
+
+    scene->addShape(new Cross(20, 20));
+
 
   scene->drawAll();
   
