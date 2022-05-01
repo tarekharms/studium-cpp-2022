@@ -51,9 +51,8 @@ ld_ez -o a.out_minmax_rational RationalNumber.o main_04_UDEF_minmax.o
 ############################################
 echo -en "\033[01;34minfo: \033[0m" #31 for red
 echo "building aout_minmax_rational.out   R G B"
-echo -en "\033[01;31mTODO: \033[0m"
-echo "FIXME - TODO - TBD - AUFGABE RGB!" 
-ld_ez -o a.out_minmax_rgb missingObjectFile.o
-
+clang++  ${CPPFLAGS} -c rgbColor.cpp
+clang++  ${CPPFLAGS} -DCALCTYPE_RGB -c  main_04_UDEF_minmax.cpp
+ld_ez -o a.out_minmax_rgb rgbColor.o main_04_UDEF_minmax.o
 
 

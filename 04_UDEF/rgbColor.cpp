@@ -39,6 +39,15 @@ RgbColor operator+(RgbColor left, RgbColor right)
     return RgbColor(red, green, blue);
 }
 
+RgbColor operator/(RgbColor left, int right)
+{
+    uint8_t red = left.red() / right;
+    uint8_t green = left.green() / right;
+    uint8_t blue = left.blue() / right;
+
+    return RgbColor(red, green, blue);
+}
+
 uint8_t addColor(uint8_t left, uint8_t right)
 {
     int color = left + right;
@@ -70,6 +79,12 @@ uint8_t RgbColor::luminosity()
 std::string as_string(RgbColor c){  // for println()
   std::string s("col(");
 
+  s+=std::to_string(c.red());
+  s+=std::string(", ");
+  s+=std::to_string(c.green());
+  s+=std::string(", ");
+  s+=std::to_string(c.blue());
+  
   s+=std::string(")");
   return s;
 }

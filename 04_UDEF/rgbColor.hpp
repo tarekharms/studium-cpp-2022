@@ -15,6 +15,7 @@ public:
   explicit RgbColor(uint32_t red, uint32_t green, uint32_t blue);
   explicit RgbColor(uint32_t rgbVal);
   operator unsigned int();
+  explicit operator unsigned int*();
 
   RgbColor& operator++();
 
@@ -27,7 +28,7 @@ public:
 
 
 RgbColor operator+ (RgbColor left, RgbColor right);
-
+RgbColor operator/ (RgbColor left, int right);
 
 std::string as_string(RgbColor);  // for println()
 

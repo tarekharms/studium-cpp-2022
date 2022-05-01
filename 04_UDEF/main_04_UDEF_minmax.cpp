@@ -20,11 +20,16 @@ typedef RationalNumber calctype;        // location 2
 #define CREATE(x) RationalNumber(x,1)   // use constructor to create a (temporary) value
 #endif
 
+#ifdef CALCTYPE_RGB
+#include "rgbColor.hpp"           // location 1
+typedef RgbColor calctype;        // location 2
+#define CREATE(x) RgbColor( (x) | (x) << 8 | (x) << 16 )   // use constructor to create a (temporary) value
+#endif
 
 void printMinMax(calctype values[], int length){
   calctype minimum = values[0];
   calctype maximum = values[0];
-  //calctype sum = CREATE(0); // calculate average
+  calctype sum = CREATE(0); // calculate average
   for(int i=1; i<length; i++){
     if (values[i] < minimum){
       minimum = values[i];
@@ -32,8 +37,12 @@ void printMinMax(calctype values[], int length){
     if (values[i] > maximum){
       maximum = values[i];
     }
+    sum = values[i] + sum;
   }
-  println("minimum=", minimum, " maximum=", maximum);
+
+  calctype average = sum / length;
+
+  println("minimum=", minimum, " maximum=", maximum, " avg=", average);
 }
 
 
