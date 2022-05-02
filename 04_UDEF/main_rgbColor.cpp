@@ -19,6 +19,9 @@ int main(){
   RgbColor mix1 = pureBlue + pureRed;
   println("mix1 = ", mix1);
 
+  RgbColor mix2 = pureRed + pureRed;
+  println("mix2 = ", mix2);
+
   unsigned int ui_mix1 = static_cast<unsigned int>(mix1);
   println("ui_mix1 = ", ui_mix1);
   

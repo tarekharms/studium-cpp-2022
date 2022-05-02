@@ -32,6 +32,7 @@ public:
 
 RgbColor operator+ (RgbColor left, RgbColor right);
 std::string as_string(RgbColor);  // for println()
+uint8_t addColors(uint8_t left, uint8_t right);
 
 #endif
 

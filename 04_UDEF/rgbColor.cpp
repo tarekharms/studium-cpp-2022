@@ -37,7 +37,11 @@ uint8_t RgbColor::blue() const {
 std::string as_string(RgbColor c){  // for println()
     std::string s("col(");
 
-    // s+=std::string(c.m_red);
+    s+=std::to_string(c.m_red);
+    s+=std::string(", ");
+    s+=std::to_string(c.m_green);
+    s+=std::string(", ");
+    s+=std::to_string(c.m_blue);
 
     s+=std::string(")");
     return s;
@@ -46,10 +50,24 @@ std::string as_string(RgbColor c){  // for println()
 RgbColor addRgbColors(RgbColor left, RgbColor right)
 {
     RgbColor result;
-    uint8_t red = left.m_red + right.m_red;
-    uint8_t green = left.m_green + right.m_green;
-    uint8_t blue = left.m_blue + right.m_blue;
+    uint16_t red = addColors(left.m_red, right.m_red);
+    uint16_t green = addColors(left.m_green, right.m_green);
+    uint16_t blue = addColors(left.m_blue, right.m_blue);
     return RgbColor(red, green, blue);
+}
+
+uint8_t addColors(uint8_t left, uint8_t right)
+{
+    uint16_t result = left + right;
+
+    if(result > 255)
+    {
+        return 255;
+    }
+    else
+    {
+        return result;
+    }
 }
 
 RgbColor operator+ (RgbColor left, RgbColor right)
