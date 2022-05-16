@@ -106,7 +106,7 @@ class Rectangle : public Shape
         Rectangle();
         Rectangle(int x, int y, int width, int height);
         Rectangle(int x, int y, int width, int height, Colors color);
-        void draw();
+        virtual void draw();
 };
 
 Rectangle::Rectangle() : Shape(0, 0, Colors::BLUE)
@@ -140,6 +140,27 @@ void Rectangle::draw()
         ansiConsole.printText(_position.x, y, "#", _color);
         ansiConsole.printText(_position.x + _width, y, "#", _color);
     }
+}
+
+class TextBox : public Rectangle 
+{
+    protected:
+        std::string _text;
+
+    public:
+        TextBox(int x, int y, int width, int height, Colors color, std::string text);
+        void draw();
+};
+
+TextBox::TextBox(int x, int y, int width, int height, Colors color, std::string text) : Rectangle (x, y, width, height, color), _text(text)
+{
+}
+
+void TextBox::draw()
+{
+    Rectangle::draw();
+    ansiConsole.printText(_position.x + ((_width - _text.length()) / 2), _position.y + (_height / 2), _text, _color);
+
 }
 
 class Scene
@@ -222,6 +243,8 @@ ansiConsole.clearScreen();
 
 
   Scene* scene = new Scene();
+
+  scene->addShape(new TextBox(30, 5, 20, 5, Colors::RED, std::string("Hello World")));
 
   scene->addShape(new Circle(10, 3, 4, Colors::WHITE));
   scene->addShape(new Circle(10, 10, 8, Colors::WHITE));
