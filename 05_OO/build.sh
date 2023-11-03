@@ -29,7 +29,8 @@ ld_ez -o a.out_shape_main AnsiConsole.o shapes_main.o
 rm shapes_main.o
 rm AnsiConsole.o
 
-#ld_ez -o a.out_main_mp4_OO_b main_mp4_OO_b.o
+ld_ez -o a.out_main_mp4_OO_b main_mp4_OO_b.o
+rm main_mp4_OO_b.o
 
 
 

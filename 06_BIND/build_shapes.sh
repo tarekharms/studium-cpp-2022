@@ -1,6 +1,4 @@
 #!/bin/bash
-
-
 ############################################
 ##          E N V I R O N M E N T         ##
 ############################################
@@ -18,16 +16,23 @@ set -x
 ############################################
 
 CPPFLAGS="-Wall -Wextra -Wpedantic -O0 -std=c++17"
-clang++ ${CPPFLAGS} -c main_06_BIND_levelAB.cpp
-clang++ ${CPPFLAGS} -c main_06_BIND_levelC.cpp
+clang++ ${CPPFLAGS} -c ${CPP_SRC_UTIL_PATH}/helpers/AnsiConsole.cpp
+clang++ ${CPPFLAGS} -c shapes_main.cpp
+clang++ ${CPPFLAGS} -c shapes_main_mod.cpp
 
 
 ############################################
 ##              L I N K E R               ##
 ############################################
 
-ld_ez -o a.out_06_BIND_levelAB main_06_BIND_levelAB.o
-ld_ez -o a.out_06_BIND_levelC main_06_BIND_levelC.o
+ld_ez -o a.out_shape_main AnsiConsole.o shapes_main.o
+ld_ez -o a.out_shape_main_mod AnsiConsole.o shapes_main_mod.o
+rm shapes_main.o
+rm shapes_main_mod.o
+rm AnsiConsole.o
+
+
+
 
 
 

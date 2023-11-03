@@ -171,6 +171,8 @@ public:
 
 
 int main(/*int argc, const char * argv[]*/) {
+  std::cout << " START" << std::endl;
+  /*
   Bar * bar = new Bar();
   // ...
   delete bar; // implies "delete _helperObject";
@@ -183,6 +185,7 @@ int main(/*int argc, const char * argv[]*/) {
     K* p2o_k = new K();    // p2o => pointer to object
     delete p2o_k;
   }
+  */
 
   HeapObject::assertionsHold();
   std::cout << " ENDE" << std::endl;

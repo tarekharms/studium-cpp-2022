@@ -86,7 +86,15 @@ RgbColor::operator unsigned int() {
     return (this->m_red * 65536 + this->m_green * 256 + this->m_blue);
 }
 
+RgbColor& RgbColor::operator+=(const RgbColor& color)
+{
+   m_red = addColors(m_red, color.m_red);
+   m_green = addColors(m_green, color.m_green);
+   m_blue = addColors(m_blue, color.m_blue);
+   return *this;
+} 
+
 int RgbColor::luminosity()
 {
-   return 0;
+   return (int)(0.21 * m_red + 0.72 * m_green + 0.07 * m_blue);
 } 

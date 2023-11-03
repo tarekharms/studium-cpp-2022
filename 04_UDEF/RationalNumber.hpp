@@ -14,6 +14,7 @@ struct RationalNumber{
 
 RationalNumber addRationalNumbers(RationalNumber left, RationalNumber right);
 RationalNumber operator+ (RationalNumber left, RationalNumber right);
+RationalNumber operator/ (RationalNumber left, RationalNumber right);
 bool operator< (RationalNumber left, RationalNumber right);
 bool operator> (RationalNumber left, RationalNumber right);
 std::string as_string(RationalNumber);  // for println()

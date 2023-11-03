@@ -52,6 +52,10 @@ RationalNumber operator+ (RationalNumber left, RationalNumber right){
 	return addRationalNumbers(left, right);
 }
 
+RationalNumber operator/ (RationalNumber left, RationalNumber right){
+	return RationalNumber(left.zaehler*right.nenner, left.nenner*right.zaehler);
+}
+
 bool operator< (RationalNumber left, RationalNumber right){
   return (1.0*left.zaehler/left.nenner)<(1.0*right.zaehler/right.nenner);
 }

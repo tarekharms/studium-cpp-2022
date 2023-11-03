@@ -11,4 +11,5 @@ clang++ ${CPPFLAGS} -I${CPP_SRC_UTIL_PATH}/helpers/  -o a.out_visibility visibil
 clang++ ${CPPFLAGS} -I${CPP_SRC_UTIL_PATH}/helpers/  -o a.out_references1 references1.cpp
 clang++ ${CPPFLAGS} -I${CPP_SRC_UTIL_PATH}/helpers/  -o a.out_references2 references2.cpp
 clang++ ${CPPFLAGS} -I${CPP_SRC_UTIL_PATH}/helpers/  -o a.out_bool bool.cpp
+clang++ ${CPPFLAGS} -I${CPP_SRC_UTIL_PATH}/helpers/  -o a.out_global test.cpp
 

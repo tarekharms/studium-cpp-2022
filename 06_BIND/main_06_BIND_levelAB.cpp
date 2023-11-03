@@ -45,6 +45,8 @@ void    Derived::virtualMethod(void){
 
 void lookupMethods(void){
   Derived* theObject = new Derived();
+  Base* theDerivedObject = new Derived();
+  Base* theBaseObject = new Base();
   
   Base*      pBase  = theObject;
   Derived* pDerived = theObject;
@@ -63,6 +65,9 @@ void lookupMethods(void){
   
   print("9) ");
   pDerived->virtualMethod();            // 9)
+
+  print("10_0) ");
+  static_cast<Derived*>(theBaseObject)->virtualMethod();
   
   print("10_1) ");
   static_cast<Base*>(pDerived)->virtualMethod();           // 10_1)
@@ -84,8 +89,23 @@ void lookupMethods(void){
   delete theObject;
 }
 
+void foobar()
+{
+  Derived* theObject = new Derived();
+
+  Base*      pBase  = theObject;
+  Derived* pDerived = theObject;
+
+  pBase->virtualMethod();
+  pDerived->virtualMethod();
+
+  pBase->nonVirtualMethod();
+  static_cast<Base*>(pDerived)->nonVirtualMethod();
+}
+
 
 int main(/*int argc, const char * argv[]*/) {  
-  lookupMethods();
+  //lookupMethods();
+  foobar();
   return 0;
 }
